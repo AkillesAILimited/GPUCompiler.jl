@@ -275,7 +275,9 @@ end
 
         # merge constants (such as exception messages) from each kernel
         ModulePassManager() do pm
+            instruction_combining!(pm)
             constant_merge!(pm)
+            always_inliner!(pm)
 
             run!(pm, ir)
         end
