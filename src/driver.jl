@@ -278,6 +278,9 @@ end
             instruction_combining!(pm)
             constant_merge!(pm)
             always_inliner!(pm)
+            scalar_repl_aggregates_ssa!(pm)
+            promote_memory_to_register!(pm)
+            gvn!(pm)
 
             run!(pm, ir)
         end
